@@ -259,6 +259,7 @@ select {
 
 .primary-navigation {
   --gap: 8rem;
+  --underline-gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -274,7 +275,7 @@ select {
 }
 
 .underline-indicators li {
-  padding-bottom: 2rem;
+  padding-block: var(--underline-gap, 1rem);
   border-bottom: 5px solid transparent;
 }
 
