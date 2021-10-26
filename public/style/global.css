@@ -94,6 +94,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flow > :where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1.5rem);
+}
+
 .container {
   --gap: 2rem;
   width: 100%;
