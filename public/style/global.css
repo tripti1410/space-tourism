@@ -1,0 +1,122 @@
+/* Custom properties */
+:root {
+  --clr-dark: 230, 35%, 7%;
+  --clr-light: 231, 77%, 90%;
+  --clr-white: 0, 0%, 100%;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility classes */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  --gap: 2rem;
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+/* Color section */
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+.bg-light {
+  background-color: hsl(var(--clr-light));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-light {
+  color: hsl(var(--clr-light));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+#colors {
+  flex-wrap: wrap;
+}
+#colors > * {
+  flex-basis: calc((100% - (2 * var(--gap))) / 3);
+}
+#colors h2 {
+  flex: 1 0 100%;
+}
+.color-patch {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.color-patch p span {
+  margin-right: 2rem;
+}
