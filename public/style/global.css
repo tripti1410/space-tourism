@@ -191,6 +191,19 @@ select {
   line-height: 1.1;
 }
 
+.numbered-title {
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 0.297rem;
+}
+
+.numbered-title span {
+  font-weight: 700;
+  color: hsl(var(--clr-white), 0.25);
+  margin-inline-end: 1.75rem;
+}
+
 #colors {
   flex-wrap: wrap;
 }
