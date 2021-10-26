@@ -75,6 +75,7 @@ select {
 
 button {
   border: none;
+  color: inherit;
   text-transform: inherit;
   letter-spacing: inherit;
   cursor: pointer;
@@ -118,7 +119,9 @@ button {
   border-bottom-color: hsl(var(--clr-white), 0.5);
 }
 
-.underline-indicators > *[data-state="active"] {
+.underline-indicators > *[data-state="active"],
+.underline-indicators > *[aria-selected="true"] {
+  color: hsl(var(--clr-white));
   border-bottom-color: hsl(var(--clr-white));
 }
 
