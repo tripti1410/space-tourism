@@ -224,3 +224,32 @@ select {
 .color-patch p span {
   margin-right: 2rem;
 }
+
+/* Componenets */
+
+.large-button {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding-inline: 2rem;
+  text-decoration: none;
+  position: relative;
+  isolation: isolate;
+}
+.large-button::after {
+  content: "";
+  background-color: hsl(var(--clr-white), 0.1);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 300ms linear, transform 500ms ease-in-out;
+}
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
