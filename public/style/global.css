@@ -139,18 +139,20 @@ button {
 
 .underline-indicators > * {
   padding-block: var(--underline-gap, 1rem);
-  border-bottom: 5px solid transparent;
+  border-bottom: 5px solid var(--underline-border-clr, transparent);
 }
 
 .underline-indicators > *:hover,
 .underline-indicators > *:focus {
-  border-bottom-color: hsl(var(--clr-white), 0.5);
+  --underline-border-clr: hsl(var(--clr-white), 0.5);
+  /* border-color: hsl(var(--clr-white), 0.5); */
 }
 
 .underline-indicators > *[data-state="active"],
 .underline-indicators > *[aria-selected="true"] {
   color: hsl(var(--clr-white));
-  border-bottom-color: hsl(var(--clr-white));
+  --underline-border-clr: hsl(var(--clr-white));
+  /* border-color: hsl(var(--clr-white)); */
 }
 
 .container {
@@ -195,7 +197,7 @@ button {
   }
 }
 
-.grid-container .sr-only {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -359,6 +361,22 @@ button {
 .primary-navigation a > span {
   font-weight: 700;
   margin-right: 0.5em;
+}
+.mobile-nav-toggle[aria-expanded="true"] ~ nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  background-color: hsl(var(--clr-dark), 1);
+  width: 60vw;
+  height: 100vh;
+  padding: 4rem 0 4rem 2rem;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] ~ nav .underline-indicators > * {
+  padding-block: 1rem;
+  border-right: 5px solid var(--underline-border-clr, transparent);
+  border-bottom: 0px;
 }
 
 .dot-indicators > * {
