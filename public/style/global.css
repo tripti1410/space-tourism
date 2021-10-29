@@ -124,9 +124,15 @@ button {
   display: grid;
   gap: var(--gap, 1rem);
 }
+
 .d-block {
   display: block;
 }
+
+.t-align-center {
+  text-align: center;
+}
+
 .flow > :where(:not(:first-child)) {
   margin-top: var(--flow-space, 1.5rem);
 }
@@ -157,23 +163,34 @@ button {
 
 .grid-container {
   display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1.5rem;
 }
 
 @media (min-width: 45rem) {
   .grid-container {
     grid-column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2em, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        2em,
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
         1fr
       );
   }
+
   .grid-container > *:first-child {
     grid-column: 2;
   }
+
   .grid-container > *:last-child {
     grid-column: 3;
   }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }
+
 .grid-container .sr-only {
   position: absolute;
   width: 1px;
