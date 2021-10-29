@@ -1,5 +1,5 @@
 ---
-let {title} = Astro.props;
+let {title, page} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ let {title} = Astro.props;
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/style/global.css">
 </head>
-<body>
+<body class="{page}">
       <slot></slot>
 </body>
 </html>

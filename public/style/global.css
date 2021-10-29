@@ -395,3 +395,14 @@ button {
   color: hsl(var(--clr-dark));
   border-color: hsl(var(--clr-white), 1);
 }
+
+/* Page level background images  */
+
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.home {
+  background-image: url(/assets/home/background-home-mobile.jpg);
+}
