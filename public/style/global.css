@@ -206,6 +206,7 @@ button {
   white-space: nowrap; /* added line */
   border: 0;
 }
+
 /* Color section */
 .bg-dark {
   background-color: hsl(var(--clr-dark));
@@ -409,4 +410,17 @@ body {
 
 .home {
   background-image: url(/assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 35em) {
+  .home {
+    background-image: url(/assets/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 45em) {
+  .home {
+    background-image: url(/assets/home/background-home-desktop.jpg);
+    background-position: right center;
+  }
 }
