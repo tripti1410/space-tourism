@@ -5,16 +5,16 @@ import BaseLayout from '$/layouts/BaseLayout.astro';
 <BaseLayout title="Space Tourism | Home" page="home">
 
 <header class="primary-header flex">
-    <a class="logo" href="/"><img src="/assets/shared/logo.svg" width="48px" height="48px" alt="space tourism logo"/></a>
+    <a class="logo-link" href="/"><img class="logo" width="48" height="48" src="/assets/shared/logo.svg" alt="space tourism logo"/></a>
     <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only" >Menu</span></button>
 
     <nav>
-        <ol id="primary-navigation" class="primary-navigation flex underline-indicators ff-sans-cond uppercase letter-spacing-2 fs-300">
+        <ul id="primary-navigation" class="primary-navigation flex underline-indicators ff-sans-cond uppercase letter-spacing-2">
             <li data-state="active"><a href="/"><span>00</span> Home</a></li>
             <li><a href="/destination"><span>01</span> Destination</a></li>
             <li><a href="/crew"><span>02</span> Crew</a></li>
             <li><a href="/technology"><span>03</span> Technology</a></li>
-        </ol>
+        </ul>
     </nav>
 </header>
 <main class="grid-container grid-container--home">
