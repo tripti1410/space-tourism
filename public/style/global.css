@@ -369,6 +369,12 @@ button {
   justify-content: space-between;
 }
 
+@media (min-width: 45rem) {
+  .primary-header {
+    padding: 2.5rem 0 0 2.5rem;
+  }
+}
+
 .primary-navigation {
   --gap: 2rem;
   --underline-gap: 2rem;
