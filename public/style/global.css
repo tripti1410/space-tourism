@@ -417,15 +417,15 @@ button {
     width: 30px;
     height: 30px;
   }
-  
+
   .mobile-nav-toggle[aria-expanded="false"] {
     background-image: url("/assets/shared/icon-hamburger.svg");
   }
-  
+
   .mobile-nav-toggle[aria-expanded="true"] {
     background-image: url("/assets/shared/icon-close.svg");
   }
-  
+
   .mobile-nav-toggle[aria-expanded="false"] ~ nav {
     display: none;
   }
