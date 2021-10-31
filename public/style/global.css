@@ -404,6 +404,7 @@ button {
     left: 25%;
     z-index: var(--z-index-900);
     flex-direction: column;
+    transform: translateX(100%);
   }
 
   .primary-navigation.underline-indicators > * {
@@ -433,8 +434,8 @@ button {
     background-image: url("/assets/shared/icon-close.svg");
   }
 
-  .mobile-nav-toggle[aria-expanded="false"] ~ nav {
-    display: none;
+  .mobile-nav-toggle[aria-expanded="true"] ~ nav .primary-navigation {
+    transform: translateX(0%);
   }
 }
 
