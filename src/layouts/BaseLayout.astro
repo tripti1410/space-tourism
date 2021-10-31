@@ -17,7 +17,8 @@ let {title, page} = Astro.props;
     <link rel="stylesheet" href="/style/global.css">
 </head>
 <body class="{page}">
-      <slot></slot>
+  <a href="#main" class="skip-to-content">Skip to content</a>
+  <slot></slot>
 
   <script src="/js/index.js"></script>
 </body>
