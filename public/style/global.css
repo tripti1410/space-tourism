@@ -357,15 +357,23 @@ button {
   transform: scale(1.5);
 }
 
+/* Primary-header */
+
+.logo {
+  padding: 1rem;
+}
+
 .primary-header {
   position: relative;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .primary-navigation {
-  --gap: 8rem;
+  --gap: 2rem;
   --underline-gap: 2rem;
   list-style: none;
-  padding: 0;
+  padding: 0 2rem;
   margin: 0;
   background-color: hsl(var(--clr-dark), 0.95);
 }
@@ -385,6 +393,11 @@ button {
 .primary-navigation a > span {
   font-weight: 700;
   margin-right: 0.5em;
+}
+@media (min-width: 30em) and (max-width: 45em) {
+  .primary-navigation a > span {
+    display: none;
+  }
 }
 
 .mobile-nav-toggle {
@@ -423,7 +436,7 @@ button {
     position: absolute;
     right: 2rem;
     z-index: var(--z-index-900);
-    top: 1rem;
+    top: 1.5rem;
     width: 2rem;
     height: 2rem;
   }
