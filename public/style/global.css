@@ -379,6 +379,10 @@ button {
   margin-right: 0.5em;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 @media (max-width: 35em) {
   .primary-navigation {
     --underline-gap: 2rem;
@@ -395,39 +399,34 @@ button {
     flex-direction: column;
   }
 
-  [aria-expanded="true"] ~ nav .underline-indicators > * {
+  .primary-navigation.underline-indicators > * {
     padding-block: 1rem;
     border-right: 5px solid var(--underline-border-clr, transparent);
     border-bottom: 0px;
   }
-}
 
-.mobile-nav-toggle {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: transparent;
-  position: absolute;
-  right: 30px;
-  z-index: calc(var(--z-index-900) + 1);
-  top: 15px;
-  width: 30px;
-  height: 30px;
-}
-
-.mobile-nav-toggle[aria-expanded="false"] {
-  background-image: url("/assets/shared/icon-hamburger.svg");
-}
-
-.mobile-nav-toggle[aria-expanded="true"] {
-  background-image: url("/assets/shared/icon-close.svg");
-}
-
-.mobile-nav-toggle[aria-expanded="false"] ~ nav {
-  display: none;
-}
-
-@media (min-width: 35em) {
   .mobile-nav-toggle {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    z-index: calc(var(--z-index-900) + 1);
+    top: 15px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .mobile-nav-toggle[aria-expanded="false"] {
+    background-image: url("/assets/shared/icon-hamburger.svg");
+  }
+  
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("/assets/shared/icon-close.svg");
+  }
+  
+  .mobile-nav-toggle[aria-expanded="false"] ~ nav {
     display: none;
   }
 }
