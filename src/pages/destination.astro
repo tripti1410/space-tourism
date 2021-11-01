@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '$/layouts/BaseLayout.astro';
 import Header from '$/components/Header.astro';
+
+import allData from '$/resources/data.json';
+const destinationData = allData["destinations"];
+
 ---
 
 <BaseLayout title="Space Tourism | Destination" page="destination">
@@ -8,6 +12,9 @@ import Header from '$/components/Header.astro';
 <Header />
 
 <main id="main" class="grid-container">
+  <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
+
+
 </main>
 
 </BaseLayout>

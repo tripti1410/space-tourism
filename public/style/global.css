@@ -315,7 +315,7 @@ button {
 
 .numbered-title {
   font-family: var(--ff-sans-cond);
-  font-size: var(--fs-500);
+  font-size: var(--fs-600);
   text-transform: uppercase;
   letter-spacing: 0.297rem;
 }
