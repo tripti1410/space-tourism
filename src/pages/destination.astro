@@ -6,9 +6,16 @@ import allData from '$/resources/data.json';
 const destinationData = allData["destinations"];
 
 const destinationNames = destinationData.map(dest => dest.name);
+const defaultDestination = destinationData[0];
 
 function isSelected(name) {
-  return name === destinationNames[0] ? "true" : false;
+  return name === defaultDestination.name ? "true" : false;
+}
+
+console.log(defaultDestination.images);
+
+function mainImageAlt(destination) {
+  return `Image of ${destination.name}`
 }
 
 ---
@@ -20,11 +27,24 @@ function isSelected(name) {
 <main id="main" class="grid-container">
   <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
 
+  <picture>
+    <source srcset={defaultDestination.images.webp} type="image/webp" alt={mainImageAlt(defaultDestination)}>
+    <img src={defaultDestination.images.png} alt={mainImageAlt(defaultDestination)}>
+  </picture>
+
   <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light">
   {destinationNames.map(name => {
     return <button aria-selected={isSelected(name)} class="bg-dark">{name}</button>;
   })}
   </div>
+
+  <h2 class="fs-800 ff-serif uppercase">{defaultDestination.name}</h2>
+  <p class="text-light">{defaultDestination.description}</p>
+
+  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
+  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
+
+
 
 </main>
 
