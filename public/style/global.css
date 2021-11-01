@@ -542,9 +542,17 @@ body {
   background-image: url(/assets/home/background-home-mobile.jpg);
 }
 
+.destination {
+  background-image: url(/assets/destination/background-destination-mobile.jpg);
+}
+
 @media (min-width: 35em) {
   .home {
     background-image: url(/assets/home/background-home-tablet.jpg);
+  }
+
+  .destination {
+    background-image: url(/assets/destination/background-destination-tablet.jpg);
   }
 }
 
@@ -552,5 +560,9 @@ body {
   .home {
     background-image: url(/assets/home/background-home-desktop.jpg);
     background-position: right center;
+  }
+
+  .destination {
+    background-image: url(/assets/destination/background-destination-desktop.jpg);
   }
 }
