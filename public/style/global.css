@@ -148,6 +148,10 @@ button {
   margin-top: var(--flow-space, 1.5rem);
 }
 
+.border-bottom {
+  border-bottom: 1px solid hsl(var(--clr-white), 0.3);
+}
+
 .underline-indicators > * {
   padding-block: var(--underline-gap, 1rem);
   border-bottom: 5px solid var(--underline-border-clr, transparent);
@@ -244,6 +248,9 @@ button {
 }
 .bg-white {
   background-color: hsl(var(--clr-white));
+}
+.bg-transparent {
+  background-color: transparent;
 }
 .text-dark {
   color: hsl(var(--clr-dark));
@@ -535,6 +542,7 @@ button {
 
 body {
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: bottom center;
 }
 
@@ -564,5 +572,24 @@ body {
 
   .destination {
     background-image: url(/assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+/* Destination page */
+
+@media (max-width: 45em) {
+  .grid-container--destination {
+    gap: 2rem;
+    padding-block: 2rem;
+  }
+}
+
+.destination-photo {
+  width: 11rem;
+}
+
+@media (min-width: 35em) {
+  .destination-photo {
+    width: 19rem;
   }
 }

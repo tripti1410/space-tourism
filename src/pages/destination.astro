@@ -12,8 +12,6 @@ function isSelected(name) {
   return name === defaultDestination.name ? "true" : false;
 }
 
-console.log(defaultDestination.images);
-
 function mainImageAlt(destination) {
   return `Image of ${destination.name}`
 }
@@ -24,25 +22,25 @@ function mainImageAlt(destination) {
 
 <Header />
 
-<main id="main" class="grid-container">
+<main id="main" class="grid-container grid-container--destination">
   <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
 
-  <picture>
+  <picture class="destination-photo">
     <source srcset={defaultDestination.images.webp} type="image/webp" alt={mainImageAlt(defaultDestination)}>
-    <img src={defaultDestination.images.png} alt={mainImageAlt(defaultDestination)}>
+    <img width="100%" src={defaultDestination.images.png} alt={mainImageAlt(defaultDestination)}>
   </picture>
 
   <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light">
   {destinationNames.map(name => {
-    return <button aria-selected={isSelected(name)} class="bg-dark">{name}</button>;
+    return <button aria-selected={isSelected(name)} class="bg-transparent">{name}</button>;
   })}
   </div>
 
   <h2 class="fs-800 ff-serif uppercase">{defaultDestination.name}</h2>
-  <p class="text-light">{defaultDestination.description}</p>
+  <p class="text-light border-bottom" style="padding-bottom: 2rem;">{defaultDestination.description}</p>
 
-  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
-  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
+  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
+  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
 
 
 
