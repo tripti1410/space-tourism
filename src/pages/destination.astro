@@ -5,6 +5,12 @@ import Header from '$/components/Header.astro';
 import allData from '$/resources/data.json';
 const destinationData = allData["destinations"];
 
+const destinationNames = destinationData.map(dest => dest.name);
+
+function isSelected(name) {
+  return name === destinationNames[0] ? "true" : false;
+}
+
 ---
 
 <BaseLayout title="Space Tourism | Destination" page="destination">
@@ -14,6 +20,11 @@ const destinationData = allData["destinations"];
 <main id="main" class="grid-container">
   <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
 
+  <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light">
+  {destinationNames.map(name => {
+    return <button aria-selected={isSelected(name)} class="bg-dark">{name}</button>;
+  })}
+  </div>
 
 </main>
 
