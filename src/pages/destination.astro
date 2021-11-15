@@ -22,7 +22,7 @@ function mainImageAlt(destination) {
 
 <Header />
 
-<main id="main" class="grid-container grid-container--destination">
+<main id="main" class="flow grid-container grid-container--destination">
   <h1 class="numbered-title"><span>01</span>Pick your destination</h1>
 
   <picture class="destination-photo">
@@ -36,12 +36,14 @@ function mainImageAlt(destination) {
   })}
   </div>
 
-  <h2 class="fs-800 ff-serif uppercase">{defaultDestination.name}</h2>
-  <p class="text-light border-bottom" style="padding-bottom: 2rem;">{defaultDestination.description}</p>
-
-  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
-  <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
-
+  <article>
+    <h2 class="fs-800 ff-serif uppercase">{defaultDestination.name}</h2>
+    <p class="text-light">{defaultDestination.description}</p>
+    <div class="destination-meta flex">
+      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
+      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
+    </div>
+  </article>
 
 
 </main>
