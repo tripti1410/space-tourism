@@ -588,6 +588,7 @@ body {
 
 @media (min-width: 35em) {
   .grid-container--crew {
+    padding-block-end: 0;
     grid-template-areas:
       "title"
       "content"
@@ -640,10 +641,9 @@ body {
 
   .grid-container--crew {
     grid-template-areas:
-      ". title image ."
+      ". title title ."
       ". content image ."
-      ". slider image ."
-      ". . image .";
+      ". slider image .";
     align-content: start;
     justify-items: start;
     row-gap: 5rem;
@@ -718,11 +718,6 @@ body {
 }
 .grid-container--crew > article {
   grid-area: content;
-}
-@media (min-width: 35em) {
-  .crew-photo-wrapper.border-bottom {
-    border-bottom: none;
-  }
 }
 
 @media (min-width: 45em) {
