@@ -23,23 +23,21 @@ function isSelected(name) {
 
 <main id="main" class="grid-container grid-container--crew">
   <h1 class="numbered-title"><span aria-hidden="true">02</span>Meet your crew</h1>
-
-  <article>
-    <h2><span>{selectedCrewMember["role"]}</span>{selectedCrewMember["name"]}</h2>
-    <p>{selectedCrewMember["bio"]}</p>
-  </article>
-
+  <div class="crew-photo-wrapper border-bottom">
+    <picture class="crew-photo">
+      <source srcset={selectedCrewMember.images.webp} type="image/webp" alt={mainImageAlt(selectedCrewMember)}>
+      <img width="100%" src={selectedCrewMember.images.png} alt={mainImageAlt(selectedCrewMember)}>
+    </picture>
+  </div>
   <div class="dot-indicators flex">
     {crewData.map((crewMember, index) => {
       return <button aria-selected={isSelected(crewMember.name)}><span class="sr-only">{`Slide ${index + 1}`}</span></button>;
     })}
   </div>
-
-  <picture class="crew-photo">
-    <source srcset={selectedCrewMember.images.webp} type="image/webp" alt={mainImageAlt(selectedCrewMember)}>
-    <img width="100%" src={selectedCrewMember.images.png} alt={mainImageAlt(selectedCrewMember)}>
-  </picture>
-
+  <article class="flow">
+    <h2 class="fs-500 ff-serif uppercase"><span class="fs-300" style="color:hsl(var(--clr-white), 0.5); display: block">{selectedCrewMember["role"]}</span>{selectedCrewMember["name"]}</h2>
+    <p class="text-light">{selectedCrewMember["bio"]}</p>
+  </article>
 </main>
 
 </BaseLayout>

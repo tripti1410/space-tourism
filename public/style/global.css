@@ -578,8 +578,30 @@ body {
   grid-template-rows: min-content min-content min-content;
 }
 
+.grid-container--crew {
+  grid-template-areas:
+    "title"
+    "image"
+    "slider"
+    "content";
+}
+
+@media (min-width: 35em) {
+  .grid-container--crew {
+    grid-template-areas:
+      "title"
+      "content"
+      "slider"
+      "image";
+  }
+}
+
 @media (max-width: 45em) {
   .grid-container--destination {
+    gap: 2rem;
+  }
+
+  .grid-container--crew {
     gap: 2rem;
   }
 }
@@ -614,6 +636,17 @@ body {
       ". image content .";
     align-content: start;
     justify-items: start;
+  }
+
+  .grid-container--crew {
+    grid-template-areas:
+      ". title image ."
+      ". content image ."
+      ". slider image ."
+      ". . image .";
+    align-content: start;
+    justify-items: start;
+    row-gap: 5rem;
   }
 }
 
@@ -664,5 +697,40 @@ body {
   .destination-meta {
     justify-content: start;
     --gap: clamp(2rem, 5.5vw, 6rem);
+  }
+}
+
+/* Crew page */
+
+.crew-photo {
+  width: 60%;
+  margin-inline: auto;
+}
+.grid-container--crew .numbered-title {
+  grid-area: title;
+}
+.grid-container--crew > .dot-indicators {
+  grid-area: slider;
+}
+.grid-container--crew > .crew-photo-wrapper {
+  grid-area: image;
+  align-self: end;
+}
+.grid-container--crew > article {
+  grid-area: content;
+}
+@media (min-width: 35em) {
+  .crew-photo-wrapper.border-bottom {
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 45em) {
+  .crew-photo {
+    width: 90%;
+  }
+
+  .grid-container--crew > .dot-indicators {
+    justify-self: start;
   }
 }
