@@ -80,6 +80,8 @@ p {
 img,
 picture {
   max-width: 100%;
+}
+img {
   display: block;
 }
 a {

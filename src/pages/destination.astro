@@ -13,7 +13,20 @@ function isSelected(name) {
 }
 
 function mainImageAlt(destination) {
-  return `the ${destination.name}`
+  switch (destination.name) {
+    case "Moon":
+      return `the ${destination.name}`;
+    case "Europa":
+    case "Titan":
+      return `the moon ${destination.name}`;
+    default:
+      return `the planet ${destination.name}`;
+  }
+
+}
+
+function isNotSelected(name) {
+  return name === defaultDestination.name ? false : true;
 }
 
 ---
@@ -24,11 +37,13 @@ function mainImageAlt(destination) {
 
 <main id="main" class="flow grid-container grid-container--destination">
   <h1 class="numbered-title"><span aria-hidden="true">01</span>Pick your destination</h1>
+  {destinationData.map(destination => {
+   return <picture class="destination-photo" data-destination={destination.name} hidden={isNotSelected(destination.name)}>
+      <source srcset={destination.images.webp} type="image/webp" alt={mainImageAlt(destination)}>
+      <img width="100%" src={destination.images.png} alt={mainImageAlt(destination)}>
+    </picture>
+  })}
 
-  <picture class="destination-photo">
-    <source srcset={defaultDestination.images.webp} type="image/webp" alt={mainImageAlt(defaultDestination)}>
-    <img width="100%" src={defaultDestination.images.png} alt={mainImageAlt(defaultDestination)}>
-  </picture>
 
   <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light">
   {destinationNames.map(name => {
@@ -36,15 +51,16 @@ function mainImageAlt(destination) {
   })}
   </div>
 
-  <article>
-    <h2 class="fs-800 ff-serif uppercase">{defaultDestination.name}</h2>
-    <p class="text-light">{defaultDestination.description}</p>
+  {destinationData.map(destination => {
+  return <article data-destination={destination.name} hidden={isNotSelected(destination.name)}>
+    <h2 class="fs-800 ff-serif uppercase">{destination.name}</h2>
+    <p class="text-light">{destination.description}</p>
     <div class="destination-meta flex">
-      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.distance}</em></p>
-      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{defaultDestination.travel}</em></p>
+      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Avg. distance <em class="fs-500 ff-serif text-white" style="font-style: normal;">{destination.distance}</em></p>
+      <p class="uppercase text-light fs-200 ff-sans-cond letter-spacing-3 grid" style="--gap: 0.3rem">Est. travel time <em class="fs-500 ff-serif text-white" style="font-style: normal;">{destination.travel}</em></p>
     </div>
   </article>
-
+  })}
 
 </main>
 
