@@ -45,14 +45,14 @@ function isNotSelected(name) {
   })}
 
 
-  <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light">
+  <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light" role="tablist" aria-label="destination list">
   {destinationNames.map(name => {
-    return <button aria-selected={isSelected(name)} class="bg-transparent">{name}</button>;
+    return <button aria-selected={isSelected(name)} role="tab" aria-controls={`${name}-tab`} tabindex={isSelected(name) ? "0" : "-1"} class="bg-transparent">{name}</button>;
   })}
   </div>
 
   {destinationData.map(destination => {
-  return <article data-destination={destination.name} hidden={isNotSelected(destination.name)}>
+  return <article id={`${destination.name}-tab`} tabindex={isSelected(destination.name) ? "0" : "-1"} data-destination={destination.name} hidden={isNotSelected(destination.name)}>
     <h2 class="fs-800 ff-serif uppercase">{destination.name}</h2>
     <p class="text-light">{destination.description}</p>
     <div class="destination-meta flex">
