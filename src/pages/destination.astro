@@ -38,7 +38,7 @@ function isNotSelected(name) {
 <main id="main" class="flow grid-container grid-container--destination">
   <h1 class="numbered-title"><span aria-hidden="true">01</span>Pick your destination</h1>
   {destinationData.map(destination => {
-   return <picture class="destination-photo" data-destination={destination.name} hidden={isNotSelected(destination.name)}>
+   return <picture id={`${destination.name}-photo`} class="destination-photo" hidden={isNotSelected(destination.name)}>
       <source srcset={destination.images.webp} type="image/webp" alt={mainImageAlt(destination)}>
       <img width="100%" src={destination.images.png} alt={mainImageAlt(destination)}>
     </picture>
@@ -52,7 +52,7 @@ function isNotSelected(name) {
   </div>
 
   {destinationData.map(destination => {
-  return <article id={`${destination.name}-tab`} tabindex={isSelected(destination.name) ? "0" : "-1"} data-destination={destination.name} hidden={isNotSelected(destination.name)}>
+  return <article id={`${destination.name}-tab`} data-photo={`${destination.name}-photo`} tabindex={isSelected(destination.name) ? "0" : "-1"}  hidden={isNotSelected(destination.name)}>
     <h2 class="fs-800 ff-serif uppercase">{destination.name}</h2>
     <p class="text-light">{destination.description}</p>
     <div class="destination-meta flex">
