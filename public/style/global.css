@@ -155,7 +155,7 @@ button {
 }
 
 .underline-indicators > * {
-  padding-block: var(--underline-gap, 1rem);
+  padding-block: var(--underline-gap, 0.5rem);
   border-bottom: 5px solid var(--underline-border-clr, transparent);
 }
 
@@ -707,6 +707,10 @@ body {
 .crew-photo {
   width: 60%;
   margin-inline: auto;
+}
+.crew-details h2 span {
+  color: hsl(var(--clr-white), 0.5);
+  display: block;
 }
 .grid-container--crew .numbered-title {
   grid-area: title;

@@ -34,8 +34,8 @@ function isSelected(name) {
       return <button aria-selected={isSelected(crewMember.name)}><span class="sr-only">{`Slide ${index + 1}`}</span></button>;
     })}
   </div>
-  <article class="flow">
-    <h2 class="fs-500 ff-serif uppercase"><span class="fs-300" style="color:hsl(var(--clr-white), 0.5); display: block">{selectedCrewMember["role"]}</span>{selectedCrewMember["name"]}</h2>
+  <article class="crew-details flow">
+    <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{selectedCrewMember["role"]}</span>{selectedCrewMember["name"]}</h2>
     <p class="text-light">{selectedCrewMember["bio"]}</p>
   </article>
 </main>
