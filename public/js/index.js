@@ -72,10 +72,15 @@ function initTabList(){
 
 	tabList.addEventListener('click', (e) => {
 		const currentEl = e.target;
+		const buttonEl = currentEl.closest('button')
+		if (!buttonEl) {
+			return;
+		}
+
 		const selectedTabEl = tabs.filter(t => t.getAttribute('aria-selected') === 'true')[0];
 
 		markTabAndPanelUnselected(selectedTabEl);
-		markTabAndPanelSelected(currentEl);
+		markTabAndPanelSelected(buttonEl);
 	});
 
 }
