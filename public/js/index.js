@@ -51,6 +51,14 @@ function initTabList(){
 				nextEl = currentEl.previousSibling || lastTab;
 				break;
 
+			case "Home":
+				nextEl = firstTab;
+				break;
+
+			case "End":
+				nextEl = lastTab;
+				break;
+
 			default:
 				return;
 		}
