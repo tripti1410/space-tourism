@@ -47,12 +47,12 @@ function isNotSelected(name) {
 
   <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light" role="tablist" aria-label="destination list">
   {destinationNames.map(name => {
-    return <button type="button" aria-selected={isSelected(name)} role="tab" aria-controls={`${name}-tab`} tabindex={isSelected(name) ? "0" : "-1"} class="bg-transparent">{name}</button>;
+    return <button id={`${name}-tab`} type="button" aria-selected={isSelected(name)} role="tab" aria-controls={`${name}-tab-panel`} tabindex={isSelected(name) ? "0" : "-1"} class="bg-transparent">{name}</button>;
   })}
   </div>
 
   {destinationData.map(destination => {
-  return <article id={`${destination.name}-tab`} data-photo={`${destination.name}-photo`} tabindex={isSelected(destination.name) ? "0" : "-1"}  hidden={isNotSelected(destination.name)}>
+  return <article id={`${destination.name}-tab-panel`} role="tabpanel" aria-labelledby={`${destination.name}-tab`} data-photo={`${destination.name}-photo`} tabindex={isSelected(destination.name) ? "0" : "-1"}  hidden={isNotSelected(destination.name)}>
     <h2 class="fs-800 ff-serif uppercase">{destination.name}</h2>
     <p class="text-light">{destination.description}</p>
     <div class="destination-meta flex">
