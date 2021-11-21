@@ -47,7 +47,7 @@ function isNotSelected(name) {
 
   <div class="tabs underline-indicators flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-light" role="tablist" aria-label="destination list">
   {destinationNames.map(name => {
-    return <button aria-selected={isSelected(name)} role="tab" aria-controls={`${name}-tab`} tabindex={isSelected(name) ? "0" : "-1"} class="bg-transparent">{name}</button>;
+    return <button type="button" aria-selected={isSelected(name)} role="tab" aria-controls={`${name}-tab`} tabindex={isSelected(name) ? "0" : "-1"} class="bg-transparent">{name}</button>;
   })}
   </div>
 

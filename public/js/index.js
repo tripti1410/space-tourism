@@ -11,12 +11,12 @@ function initNavigation(){
 
 function initTabList(){
 	const tabList = document.querySelector('[role="tablist"]');
-	const tabs = tabList.querySelectorAll('[role="tab"]');
+	const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
+
 	const firstTab = tabs[0];
 	const lastTab = tabs[tabs.length - 1];
 
 	function markTabAndPanelUnselected(el) {
-		el.setAttribute('tabindex', "-1");
 		el.setAttribute('aria-selected', false);
 		const panel = document.getElementById(el.getAttribute('aria-controls'));
 		panel.setAttribute("hidden", true);
@@ -25,13 +25,17 @@ function initTabList(){
 	}
 
 	function markTabAndPanelSelected(el) {
-		el.setAttribute('tabindex', "0");
 		el.setAttribute('aria-selected', "true");
 		const panel = document.getElementById(el.getAttribute('aria-controls'));
 		panel.removeAttribute("hidden");
 		const photo = document.getElementById(panel.getAttribute("data-photo"));
 		photo.removeAttribute("hidden");
-		el.focus();
+	}
+
+	function switchFocus(from, to) {
+		from.setAttribute('tabindex', "-1");
+		to.setAttribute('tabindex', "0");
+		to.focus();
 	}
 
 	tabList.addEventListener('keydown', (e) => {
@@ -55,10 +59,19 @@ function initTabList(){
 			return;
 		}
 
-		markTabAndPanelUnselected(currentEl);
-		markTabAndPanelSelected(nextEl);
+		switchFocus(currentEl, nextEl);
 	});
+
+	tabList.addEventListener('click', (e) => {
+		const currentEl = e.target;
+		const selectedTabEl = tabs.filter(t => t.getAttribute('aria-selected') === 'true')[0];
+
+		markTabAndPanelUnselected(selectedTabEl);
+		markTabAndPanelSelected(currentEl);
+	});
+
 }
+
 
 initNavigation();
 initTabList();
