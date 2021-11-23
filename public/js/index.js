@@ -88,6 +88,29 @@ function initTabList(){
 
 }
 
+function initDotSlider () {
+	const dotList = document.querySelector('.dot-indicators');
+	if(!dotList) {
+		return;
+	}
+	const dots = Array.from(dotList.querySelectorAll('button'));
+
+	dotList.addEventListener('click', (e) => {
+		const selectedDot = dots.find(dot => dot.getAttribute('aria-selected') === "true")
+		const selectedDotSlide = document.getElementById(selectedDot.getAttribute('data-slide'))
+		selectedDotSlide.setAttribute('hidden', "true");
+		selectedDot.setAttribute('aria-selected', "false")
+
+		const clickedDot = e.target
+		const clickedDotSlide = document.getElementById(clickedDot.getAttribute('data-slide'));
+		clickedDotSlide.removeAttribute('hidden');
+	  clickedDot.setAttribute('aria-selected', "true")
+	})
+
+}
+
+
 
 initNavigation();
 initTabList();
+initDotSlider();

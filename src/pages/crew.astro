@@ -37,12 +37,14 @@ function isNotSelected(name) {
 
   </div>
   <div class="dot-indicators flex">
-    {crewData.map((crewMember, index) => {
-      return <button aria-selected={isSelected(crewMember.name)}><span class="sr-only">{`Slide ${index + 1}`}</span></button>;
+    {crewData.map((crew, index) => {
+      return <button data-slide={`${crew.id}-slide`} aria-selected={isSelected(crew.name)}>
+      <span class="sr-only">{`Slide ${index + 1}`}</span>
+      </button>;
     })}
   </div>
   {crewData.map(crew => {
-  return <article class="crew-details flow" hidden={isNotSelected(crew.name)}>
+  return <article class="crew-details flow" id={`${crew.id}-slide`} hidden={isNotSelected(crew.name)}>
     <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{crew["role"]}</span>{crew["name"]}</h2>
     <p class="text-light">{crew["bio"]}</p>
   </article>})}
