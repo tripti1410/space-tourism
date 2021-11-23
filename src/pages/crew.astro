@@ -29,7 +29,7 @@ function isNotSelected(name) {
   <h1 class="numbered-title"><span aria-hidden="true">02</span>Meet your crew</h1>
   <div class="crew-photo-wrapper border-bottom">
   {crewData.map(crew => {
-    return <picture class="crew-photo" hidden={isNotSelected(crew.name)}>
+    return <picture class="crew-photo" id={`${crew.id}-image`} hidden={isNotSelected(crew.name)}>
       <source srcset={crew.images.webp} type="image/webp" alt={mainImageAlt(crew)}>
       <img width="100%" src={crew.images.png} alt={mainImageAlt(crew)}>
     </picture>
@@ -44,7 +44,7 @@ function isNotSelected(name) {
     })}
   </div>
   {crewData.map(crew => {
-  return <article class="crew-details flow" id={`${crew.id}-slide`} hidden={isNotSelected(crew.name)}>
+  return <article class="crew-details flow" id={`${crew.id}-slide`} data-image={`${crew.id}-image`} hidden={isNotSelected(crew.name)}>
     <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{crew["role"]}</span>{crew["name"]}</h2>
     <p class="text-light">{crew["bio"]}</p>
   </article>})}
