@@ -11,6 +11,9 @@ function initNavigation(){
 
 function initTabList(){
 	const tabList = document.querySelector('[role="tablist"]');
+	if (!tabList) {
+		return
+	}
 	const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
 
 	const firstTab = tabs[0];
