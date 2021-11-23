@@ -15,6 +15,10 @@ function isSelected(name) {
   return name === selectedCrewMember.name ? "true" : false;
 }
 
+function isNotSelected(name) {
+  return name !== selectedCrewMember.name ? "true" : false;
+}
+
 ---
 
 <BaseLayout title="Space Tourism | Crew" page="crew">
@@ -24,20 +28,24 @@ function isSelected(name) {
 <main id="main" class="grid-container grid-container--crew">
   <h1 class="numbered-title"><span aria-hidden="true">02</span>Meet your crew</h1>
   <div class="crew-photo-wrapper border-bottom">
-    <picture class="crew-photo">
-      <source srcset={selectedCrewMember.images.webp} type="image/webp" alt={mainImageAlt(selectedCrewMember)}>
-      <img width="100%" src={selectedCrewMember.images.png} alt={mainImageAlt(selectedCrewMember)}>
+  {crewData.map(crew => {
+    return <picture class="crew-photo" hidden={isNotSelected(crew.name)}>
+      <source srcset={crew.images.webp} type="image/webp" alt={mainImageAlt(crew)}>
+      <img width="100%" src={crew.images.png} alt={mainImageAlt(crew)}>
     </picture>
+  })}
+
   </div>
   <div class="dot-indicators flex">
     {crewData.map((crewMember, index) => {
       return <button aria-selected={isSelected(crewMember.name)}><span class="sr-only">{`Slide ${index + 1}`}</span></button>;
     })}
   </div>
-  <article class="crew-details flow">
-    <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{selectedCrewMember["role"]}</span>{selectedCrewMember["name"]}</h2>
-    <p class="text-light">{selectedCrewMember["bio"]}</p>
-  </article>
+  {crewData.map(crew => {
+  return <article class="crew-details flow" hidden={isNotSelected(crew.name)}>
+    <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{crew["role"]}</span>{crew["name"]}</h2>
+    <p class="text-light">{crew["bio"]}</p>
+  </article>})}
 </main>
 
 </BaseLayout>
