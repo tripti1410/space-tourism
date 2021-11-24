@@ -36,15 +36,15 @@ function isNotSelected(name) {
   })}
 
   </div>
-  <div class="dot-indicators flex">
+  <div class="dot-indicators flex" role="tablist" aria-label="crew list">
     {crewData.map((crew, index) => {
-      return <button data-slide={`${crew.id}-slide`} aria-selected={isSelected(crew.name)}>
+      return <button aria-controls={`${crew.id}-panel`} aria-selected={isSelected(crew.name)} role="tab" tabindex={isSelected(crew.name) ? "0" : "-1"}>
       <span class="sr-only">{`Slide ${index + 1}`}</span>
       </button>;
     })}
   </div>
   {crewData.map(crew => {
-  return <article class="crew-details flow" id={`${crew.id}-slide`} data-image={`${crew.id}-image`} hidden={isNotSelected(crew.name)}>
+  return <article class="crew-details flow" id={`${crew.id}-panel`} data-image={`${crew.id}-image`} hidden={isNotSelected(crew.name)} role="tabpanel" tabindex={isSelected(crew.name) ? "0" : "-1"}>
     <h2 class="fs-500 ff-serif uppercase"><span class="fs-300">{crew["role"]}</span>{crew["name"]}</h2>
     <p class="text-light">{crew["bio"]}</p>
   </article>})}

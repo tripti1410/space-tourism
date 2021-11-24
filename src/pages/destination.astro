@@ -52,7 +52,7 @@ function isNotSelected(name) {
   </div>
 
   {destinationData.map(destination => {
-  return <article id={`${destination.name}-tab-panel`} role="tabpanel" aria-labelledby={`${destination.name}-tab`} data-photo={`${destination.name}-photo`} tabindex={isSelected(destination.name) ? "0" : "-1"}  hidden={isNotSelected(destination.name)}>
+  return <article id={`${destination.name}-tab-panel`} role="tabpanel" aria-labelledby={`${destination.name}-tab`} data-image={`${destination.name}-photo`} tabindex={isSelected(destination.name) ? "0" : "-1"}  hidden={isNotSelected(destination.name)}>
     <h2 class="fs-800 ff-serif uppercase">{destination.name}</h2>
     <p class="text-light">{destination.description}</p>
     <div class="destination-meta flex">
