@@ -1,13 +1,46 @@
 ---
 import BaseLayout from '$/layouts/BaseLayout.astro';
 import Header from '$/components/Header.astro';
+
+import allData from '$/resources/data.json';
+const technologyData = allData["technology"];
+
+const defaultDestination = technologyData[0]
+
+function isSelected(name) {
+  return name === defaultDestination.name ? "true" : false;
+}
+
+function isNotSelected(name) {
+  return name === defaultDestination.name ? false : true;
+}
 ---
 
-<BaseLayout title="Space Tourism | Destination" page="destination">
+<BaseLayout title="Space Tourism | Technology" page="technology">
 
 <Header />
 
-<main id="main" class="grid-container">
+<main id="main" class="grid-container grid-container--technology">
+<h1 class="numbered-title"><span aria-hidden="true">01</span>Space Launch 101</h1>
+{technologyData.map(technology => {
+   return <picture id={`${technology.id}-image`} class="technology-photo" hidden={isNotSelected(technology.name)}>
+      <source srcset={technology.images.portrait} media="(min-width: 45em)" alt={`${technology.name}`}>
+      <img width="100%" src={technology.images.landscape} alt={`${technology.name}`}>
+    </picture>
+  })}
+	<div class="numbered-indicators flex fs-600 ff-serif" role="tablist" aria-label="technology list">
+		{technologyData.map((technology, index) => {
+			return <button id={`${technology.id}-tab`} role="tab" aria-selected={isSelected(technology.name)} tabindex={isSelected(technology.name) ? "0" : "-1"} aria-controls={`${technology.id}-tab-panel`} class="bg-dark">{index + 1}</button>
+		})}
+	</div>
+
+	{technologyData.map(technology => {
+	return <article id={`${technology.id}-tab-panel`} role="tabpanel" aria-labelledby={`${technology.id}-tab`} tabindex={isSelected(technology.name) ? "0" : "-1"} hidden={isNotSelected(technology.name)} data-image={`${technology.id}-image`}>
+	<p class="fs-300 ff-sans-cond letter-spacing-2 uppercase">THE TERMINOLOGY…</p>
+	<h2 class="fs-700 ff-serif uppercase">{technology.name}</h2>
+	<p>{technology.description}</p>
+	</article>
+	})}
 </main>
 
 </BaseLayout>
