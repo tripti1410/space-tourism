@@ -488,6 +488,7 @@ button {
   border-radius: 50%;
   aspect-ratio: 1;
   width: clamp(3rem, 7vw, 5rem);
+  padding: 0;
 }
 
 .numbered-indicators > *:hover,
