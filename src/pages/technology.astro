@@ -35,10 +35,12 @@ function isNotSelected(name) {
 	</div>
 
 	{technologyData.map(technology => {
-	return <article id={`${technology.id}-tab-panel`} role="tabpanel" aria-labelledby={`${technology.id}-tab`} tabindex={isSelected(technology.name) ? "0" : "-1"} hidden={isNotSelected(technology.name)} data-image={`${technology.id}-image`}>
-	<p class="fs-300 ff-sans-cond letter-spacing-2 uppercase">THE TERMINOLOGY…</p>
+	return <article id={`${technology.id}-tab-panel`} role="tabpanel" aria-labelledby={`${technology.id}-tab`} tabindex={isSelected(technology.name) ? "0" : "-1"} hidden={isNotSelected(technology.name)} data-image={`${technology.id}-image`} class="flow">
+	<header class="flow" style="--flow-space: 0.5rem">
+	<p class="fs-300 ff-sans-cond letter-spacing-2 uppercase text-light">THE TERMINOLOGY…</p>
 	<h2 class="fs-700 ff-serif uppercase">{technology.name}</h2>
-	<p>{technology.description}</p>
+	</header>
+	<p class="text-light">{technology.description}</p>
 	</article>
 	})}
 </main>
